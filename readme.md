@@ -12,3 +12,7 @@ This app is made for jotting down daily spend / income.
   3. Allow monthly budgetting.
   4. [EXTRA] able to generate monthly and yearly report.
   5. [EXTRA] if we are able to sync the expanse with action payment then that would be awesome!
+
+## TODOs
+
+  1. Create table schemas and corresponding migrations.
