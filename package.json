@@ -1,0 +1,20 @@
+{
+  "name": "accounting",
+  "version": "1.0.0",
+  "description": "Jot down your spense with ease. co-editing an accountbook",
+  "main": "index.js",
+  "scripts": {
+    "dev": "DEBUG='*,-not_this' NODE_ENV=development nodemon server.js"
+  },
+  "author": "Bryan Huang <huangchiheng@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^3.1.0",
+    "express": "^4.16.3",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
