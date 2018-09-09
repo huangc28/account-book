@@ -22,7 +22,7 @@ exports.up = function(knex, Promise) {
     // migrate "expanses" table
     knex.schema.createTable('expanses', table => {
       table.increments('id').primary()
-      // @ref https://stackoverflow.com/questions/28350849/knex-migration-creating-foreign-key
+      // @ref https://github.com/tgriesser/knex/issues/245#issuecomment-234702769
       table.integer('user_id', 11).unsigned().references('id').inTable('users')
       table.integer('account_book_id', 11).unsigned().references('id').inTable('account_book')
       table.enu('action', [EXPANSE, INCOME])
@@ -34,5 +34,9 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExists('account_book')
+  return Promise.all([
+    knex.schema.dropTableIfExists('expanses'),
+    knex.schema.dropTableIfExists('user'),
+    knex.schema.dropTableIfExists('account_book'),
+  ])
 };
