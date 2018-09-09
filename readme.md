@@ -15,4 +15,4 @@ This app is made for jotting down daily spend / income.
 
 ## TODOs
 
-  1. Create table schemas and corresponding migrations.
+  - Create table schemas and corresponding migrations.
