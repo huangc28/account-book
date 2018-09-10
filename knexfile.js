@@ -11,8 +11,8 @@ module.exports = {
       password: 'Huang_0216'
     },
     pool: {
-      min: 2,
-      max: 10
+      max: 1,
+      min: 1
     },
     migrations: {
       tableName: 'knex_migrations'
