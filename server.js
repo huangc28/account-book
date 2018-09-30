@@ -1,10 +1,13 @@
-const http = require('http')
-const ServerDebug = require('debug')('server')
+import http from 'http'
+import debug from 'debug'
 
-const app = require('./src')
+import app from './src'
+
+const ServerDebug = debug('server')
+
 const PORT = 3000
 
-server = http.createServer(app)
+const server = http.createServer(app)
 
 server.listen(PORT, err => {
   if (err) {

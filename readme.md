@@ -15,4 +15,6 @@ This app is made for jotting down daily spend / income.
 
 ## TODOs
 
-  - Create table schemas and corresponding migrations.
+  - [x] Create table schemas and corresponding migrations.
+  - [x] Transpile nodejs code with babel.js.
+  - Seed user data, perform CRUD on expanses.
