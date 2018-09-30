@@ -1,7 +1,14 @@
-const app = require('express')()
+import express from 'express'
 
-app.get('/health-check', (req, res) => {
+import v1Routers from './routes'
+
+const app = express()
+
+// health check routes.
+app.get('/health-check', (_, res) => {
   res.status(200).send('hello world')
 })
 
-module.exports = app
+app.use('/v1', v1Routers)
+
+export default app
