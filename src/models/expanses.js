@@ -1,6 +1,6 @@
 import { Model } from 'objection'
+import { resolve } from 'path'
 
-import Users from './users'
 import knexBase from './knexBase'
 
 Model.knex(knexBase)
@@ -9,11 +9,11 @@ class Expanses extends Model {
   static tableName = 'expanses'
 
   static relationMappings = {
-    user: {
+    users: {
       relation: Model.BelongsToOneRelation,
-      modelClass: Users,
+      modelClass: resolve(__dirname, 'users.js'),
       join: {
-        from: 'expanses.user_id',
+        from: 'expanses.userId',
         to: 'user.id',
       }
     }

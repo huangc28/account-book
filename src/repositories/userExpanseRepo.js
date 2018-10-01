@@ -6,9 +6,9 @@ import curry from '../utils/curry'
  */
 export const getExpansesByUserID = curry(
   (userModel, userID) => {
-    console.log(userModel)
+    console.log('userModel', userModel)
+    console.log('userID', userID)
 
-    return userModel
-      .$relatedQuery('expanses')
+    return userModel.$relatedQuery('expanses')
   }
 )
