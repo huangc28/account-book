@@ -14,7 +14,7 @@ class Users extends Model {
       modelClass: resolve(__dirname, 'expanses.js'),
       join: {
         from: 'users.id',
-        to: 'expanses.userId',
+        to: 'expanses.user_id',
       }
     }
   }

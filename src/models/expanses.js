@@ -13,8 +13,8 @@ class Expanses extends Model {
       relation: Model.BelongsToOneRelation,
       modelClass: resolve(__dirname, 'users.js'),
       join: {
-        from: 'expanses.userId',
-        to: 'user.id',
+        from: 'expanses.user_id',
+        to: 'users.id',
       }
     }
   }
