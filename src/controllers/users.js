@@ -1,25 +1,20 @@
-import UserExpanseRepo from '../repositories/userExpanseRepo'
-import Users from '../../models/users'
-
-// const curry(UserExpanseRepo.getExpanse, Users)(userID)
+import { getUserWithExpansesByID } from '../repositories/userExpanseRepo'
+import Users from '../models/users'
+import compose from '../utils/compose'
 
 // retrieve all expanses for a given user
-function expanses (req, res) {
+async function expanses (req, res) {
   // retrieve user id from URL param
   const getUserIDFromRequest = req =>req.params.userID
 
   const getExpanses = compose(
-    UserExpanseRepo.getExpansesByUserID(Users),
+    getUserWithExpansesByID(Users),
     getUserIDFromRequest,
   )
 
   const result = await getExpanses(req)
 
-  console.log(result)
-
-  res.status(200).json({
-    msg: 'expanse api'
-  })
+  res.status(200).json(result)
 }
 
 export default {

@@ -1,12 +1,16 @@
-import { getExpansesByUserID } from '../repositories/userExpanseRepo'
-import UsersModel from '../../models/users'
+import { getUserWithExpansesByID } from '../repositories/userExpanseRepo'
+import UsersModel from '../models/users'
+import KnexBase from '../models/knexBase'
 
 describe('relationship operations between user and expanses', () => {
+  afterAll(() => KnexBase.destroy())
+
   test('get user expanses by user id in FP fashion', async () => {
-    // console.log('user model', UsersModel.tableName)
+    const users = await getUserWithExpansesByID(UsersModel)(1)
 
-    const expanses = await getExpansesByUserID(UsersModel)(1)
+    const expanse = users[0].expanses[0]
 
-    console.log('expanses', expanses)
+    expect(expanse.amount).toBe(123)
+    expect(expanse.action).toBe('expanse')
   })
 })
