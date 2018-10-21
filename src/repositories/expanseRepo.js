@@ -7,4 +7,3 @@ export const getExpanseByID = curry(
       .where('id', ID)
   }
 )
-

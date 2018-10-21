@@ -1,4 +1,4 @@
-exports.up = function(knex, Promise) {
+exports.up = function (knex, Promise) {
   return knex
     .schema
     .hasTable('account_book')
@@ -13,7 +13,7 @@ exports.up = function(knex, Promise) {
     ))
 };
 
-exports.down = function(knex, Promise) {
+exports.down = function (knex, Promise) {
   return knex
     .schema
     .hasTable('account_book')

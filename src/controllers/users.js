@@ -5,7 +5,7 @@ import compose from '../utils/compose'
 // retrieve all expanses for a given user
 async function expanses (req, res) {
   // retrieve user id from URL param
-  const getUserIDFromRequest = req =>req.params.userID
+  const getUserIDFromRequest = req => req.params.userID
 
   const getExpanses = compose(
     getUserWithExpansesByID(Users),

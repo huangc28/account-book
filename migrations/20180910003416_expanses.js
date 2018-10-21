@@ -1,7 +1,6 @@
 const { EXPANSE, INCOME } = require('../constants/cashFlowTypes')
 
-
-exports.up = function(knex, Promise) {
+exports.up = function (knex, Promise) {
   return knex
     .schema
     .hasTable('expanses')
@@ -20,7 +19,7 @@ exports.up = function(knex, Promise) {
     ))
 };
 
-exports.down = function(knex, Promise) {
+exports.down = function (knex, Promise) {
   return knex
     .schema
     .hasTable('expanses')

@@ -20,3 +20,4 @@ This app is made for jotting down daily spend / income.
   - [] Seed user data, perform CRUD on expanses.
   - [] Get user related accounting book. Each user should have one account book only.
   - [] Add eslint.
+  - [] integrate GraphQL.

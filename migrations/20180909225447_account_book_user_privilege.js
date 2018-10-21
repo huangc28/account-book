@@ -5,7 +5,7 @@
 const OWNER = 1
 const EDITOR = 2
 
-exports.up = function(knex, Promise) {
+exports.up = function (knex, Promise) {
   return Promise.all([
     knex.schema.createTable('account_book_user_privilege', table => {
       table.increments('id').primary()
@@ -19,7 +19,7 @@ exports.up = function(knex, Promise) {
   ])
 };
 
-exports.down = function(knex, Promise) {
+exports.down = function (knex, Promise) {
   return Promise.all([
     knex.schema.dropTable('account_book_user_privilege')
   ])

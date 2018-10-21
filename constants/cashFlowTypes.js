@@ -1,4 +1,4 @@
 module.exports = {
-  EXPANSE: "expanse",
-  INCOME: "income",
+  EXPANSE: 'expanse',
+  INCOME: 'income',
 }

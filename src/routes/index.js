@@ -14,5 +14,8 @@ const Router = express.Router()
  * export default Router
  */
 Router.get('/users/:userID(\\d+)/expanses', users.expanses)
+Router.get('/users/:userID(\\d+)/account-book', (req, res) => {
+  res.send('hello account-book')
+})
 
 export default Router

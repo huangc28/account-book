@@ -6,18 +6,18 @@ const DEVELOPMENT_CONFIG = {
     port: '3306',
     database: 'accounting_book',
     user: 'root',
-    password: 'Huang_0216'
+    password: 'Huang_0216',
   },
   pool: {
     max: 1,
-    min: 1
+    min: 1,
   },
   migrations: {
-    tableName: 'knex_migrations'
+    tableName: 'knex_migrations',
   },
   seeds: {
-    directory: './seeds/dev'
-  }
+    directory: './seeds/dev',
+  },
 }
 
 const TEST_CONFIG = {
@@ -27,18 +27,18 @@ const TEST_CONFIG = {
     port: '3306',
     database: 'accounting_book',
     user: 'root',
-    password: 'Huang_0216'
+    password: 'Huang_0216',
   },
   pool: {
     max: 1,
-    min: 1
+    min: 1,
   },
   migrations: {
-    tableName: 'knex_migrations'
+    tableName: 'knex_migrations',
   },
   seeds: {
-    directory: './seeds/dev'
-  }
+    directory: './seeds/dev',
+  },
 }
 
 module.exports = {
