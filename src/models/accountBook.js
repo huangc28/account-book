@@ -19,7 +19,7 @@ class AccountBook extends Model {
       join: {
         from: 'account_book.user_id',
         to: 'user.id',
-      }
+      },
     },
     expanses: {
       relation: Model.HasManyRelation,
@@ -27,7 +27,7 @@ class AccountBook extends Model {
       join: {
         from: 'account_book.id',
         to: 'expanses.account_book_id',
-      }
+      },
     },
   }
 }

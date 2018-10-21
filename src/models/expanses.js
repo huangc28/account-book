@@ -15,7 +15,7 @@ class Expanses extends Model {
       join: {
         from: 'expanses.user_id',
         to: 'users.id',
-      }
+      },
     },
     account_book: {
       relation: Model.BelongsToOneRelation,

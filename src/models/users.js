@@ -15,8 +15,8 @@ class Users extends Model {
       join: {
         from: 'users.id',
         to: 'expanses.user_id',
-      }
-    }
+      },
+    },
   }
 }
 

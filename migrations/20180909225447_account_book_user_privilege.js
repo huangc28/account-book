@@ -15,12 +15,12 @@ exports.up = function (knex, Promise) {
       table.foreign('account_book_id').references('id').inTable('account_book')
       table.enu('privilege', [OWNER, EDITOR])
       table.timestamps(false, true)
-    })
+    }),
   ])
 };
 
 exports.down = function (knex, Promise) {
   return Promise.all([
-    knex.schema.dropTable('account_book_user_privilege')
+    knex.schema.dropTable('account_book_user_privilege'),
   ])
 };

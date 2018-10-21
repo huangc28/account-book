@@ -19,5 +19,5 @@ This app is made for jotting down daily spend / income.
   - [x] Transpile nodejs code with babel.js.
   - [] Seed user data, perform CRUD on expanses.
   - [] Get user related accounting book. Each user should have one account book only.
-  - [] Add eslint.
+  - [x] Add eslint.
   - [] integrate GraphQL.
