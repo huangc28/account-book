@@ -11,12 +11,20 @@ class Expanses extends Model {
   static relationMappings = {
     users: {
       relation: Model.BelongsToOneRelation,
-      modelClass: resolve(__dirname, 'users.js'),
+      modelClass: resolve(__dirname, './users.js'),
       join: {
         from: 'expanses.user_id',
         to: 'users.id',
       }
-    }
+    },
+    account_book: {
+      relation: Model.BelongsToOneRelation,
+      modelClass: resolve(__dirname, './accountBook.js'),
+    },
+    join: {
+      from: 'expanses.account_book_id',
+      to: 'account_book.id',
+    },
   }
 }
 
