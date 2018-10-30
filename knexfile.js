@@ -1,6 +1,5 @@
 require('dotenv').config()
 
-
 const {
   DB_HOST,
   DB_PORT,
@@ -8,8 +7,6 @@ const {
   DB_USER,
   DB_PASSWORD,
 } = process.env
-
-// console.log('process env', process.env)
 
 const dbConf = {
   client: 'mysql',
