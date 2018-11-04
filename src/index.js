@@ -1,6 +1,11 @@
 import express from 'express'
 import expressGraphQL from 'express-graphql'
-import graphql from 'graphql'
+import {
+  GraphQLObjectType,
+  GraphQLInt,
+  GraphQLList,
+  GraphQLSchema,
+} from 'graphql'
 
 import v1Routers from './routes'
 
@@ -13,55 +18,37 @@ app.get('/health-check', (_, res) => {
 
 app.use('/v1', v1Routers)
 
-const queryType = new graphql.GraphQLObjectType({
+const queryType = new GraphQLObjectType({
   name: 'Query',
   fields: {
     rollDice: {
-      type: graphql.GraphQLList(graphql.GraphQLInt),
+      type: GraphQLList(GraphQLInt),
       args: {
-        numDice: graphql.GraphQLInt,
-      }
-    }
-  }
+        numDice: {
+          type: GraphQLInt,
+        },
+        numSides: {
+          type: GraphQLInt,
+        },
+      },
+      resolve: (_, { numDice, numSides }) => {
+        const output = [];
+
+        for (let i = 0; i < numDice; i++) {
+          output.push(1 + Math.floor(Math.random() * (numSides || 6)))
+        }
+
+        return output
+      },
+    },
+  },
 })
 
 // GraphQL schema
-const schema = new graphql.GraphQLSchema({ query: queryType })
-
-// const schema = buildSchema(`
-//   type Query {
-//     rollDice(numDice: Int!, numSides: Int): [Int]
-//     quoteOfTheDay: String
-//     random: Float!
-//     rollThreeDice: [Int]
-//   }
-// `)
-
-// Root resolver
-const rootResolver = {
-  rollDice: ({ numDice, numSides }) => {
-    const output = [];
-
-    for (let i = 0; i < numDice; i++) {
-      output.push(1 + Math.floor(Math.random() * (numSides || 6)))
-    }
-
-    return output
-  },
-  quoteOfTheDay: () => {
-    return Math.random() < 0.5 ? 'Take it easy' : 'Salvation lies within'
-  },
-  random: () => {
-    return Math.random()
-  },
-  rollThreeDice: () => {
-    return [1, 2, 3].map(_ => 1 + Math.floor(Math.random() * 6))
-  }
-}
+const schema = new GraphQLSchema({ query: queryType })
 
 app.use('/graphql', expressGraphQL({
   schema,
-  rootValue: rootResolver,
   graphiql: true,
 }))
 
