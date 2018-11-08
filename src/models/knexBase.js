@@ -1,7 +1,7 @@
 import Knex from 'knex'
 
-import config from '../..//knexfile'
+import config from '../../knexfile'
 
-const knex = Knex(config.test)
+const knex = Knex(config)
 
 export default knex
