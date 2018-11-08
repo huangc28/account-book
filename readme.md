@@ -13,6 +13,17 @@ This app is made for jotting down daily spend / income.
   4. [EXTRA] able to generate monthly and yearly report.
   5. [EXTRA] if we are able to sync the expanse with action payment then that would be awesome!
 
+## Project config
+
+```
+PORT=3000
+DB_HOST=35.232.107.13
+DB_PORT=3306
+DATABASE=accounting_book
+DB_USERNAME=huangc28
+DB_PASSWORD=Huang_0216
+```
+
 ## TODOs
 
   - [x] Create table schemas and corresponding migrations.
