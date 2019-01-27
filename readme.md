@@ -33,3 +33,8 @@ DB_PASSWORD=Huang_0216
   - [] Get all expanses / income of the specific **date** of that **account book**.
   - [] Get user related accounting book. Each user should have one account book only.
   - [x] Add eslint.
+  - [] integrate GraphQL.
+
+## References
+
+  - [official graphQL nodejs document](https://graphql.org/graphql-js/)

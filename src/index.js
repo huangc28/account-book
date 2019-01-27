@@ -16,40 +16,58 @@ app.get('/health-check', (_, res) => {
   res.status(200).send('hello world')
 })
 
-app.use('/v1', v1Routers)
+// app.use('/v1', v1Routers)
 
-const queryType = new GraphQLObjectType({
-  name: 'Query',
-  fields: {
-    rollDice: {
-      type: GraphQLList(GraphQLInt),
-      args: {
-        numDice: {
-          type: GraphQLInt,
-        },
-        numSides: {
-          type: GraphQLInt,
-        },
-      },
-      resolve: (_, { numDice, numSides }) => {
-        const output = [];
-
-        for (let i = 0; i < numDice; i++) {
-          output.push(1 + Math.floor(Math.random() * (numSides || 6)))
-        }
-
-        return output
-      },
-    },
-  },
-})
+// const queryType = new graphql.GraphQLObjectType({
+//   name: 'Query',
+//   fields: {
+//     rollDice: {
+//       type: graphql.GraphQLList(graphql.GraphQLInt),
+//       args: {
+//         numDice: graphql.GraphQLInt,
+//       },
+//     },
+//   },
+// })
 
 // GraphQL schema
-const schema = new GraphQLSchema({ query: queryType })
+// const schema = new graphql.GraphQLSchema({ query: queryType })
 
-app.use('/graphql', expressGraphQL({
-  schema,
-  graphiql: true,
-}))
+// const schema = buildSchema(`
+//   type Query {
+//     rollDice(numDice: Int!, numSides: Int): [Int]
+//     quoteOfTheDay: String
+//     random: Float!
+//     rollThreeDice: [Int]
+//   }
+// `)
+
+// Root resolver
+// const rootResolver = {
+//   rollDice: ({ numDice, numSides }) => {
+//     const output = [];
+
+//     for (let i = 0; i < numDice; i++) {
+//       output.push(1 + Math.floor(Math.random() * (numSides || 6)))
+//     }
+
+//     return output
+//   },
+//   quoteOfTheDay: () => {
+//     return Math.random() < 0.5 ? 'Take it easy' : 'Salvation lies within'
+//   },
+//   random: () => {
+//     return Math.random()
+//   },
+//   rollThreeDice: () => {
+//     return [1, 2, 3].map(_ => 1 + Math.floor(Math.random() * 6))
+//   }
+// }
+
+// app.use('/graphql', expressGraphQL({
+//   schema,
+//   rootValue: rootResolver,
+//   graphiql: true,
+// }))
 
 export default app
